@@ -1,0 +1,221 @@
+.navigation {
+
+    /* NAVIGATION CHECKBOX */
+    &__checkbox {
+        display: none;
+    }
+
+    /* NAVIGATION BUTTON */
+    &__button {
+
+        // Physical Properties
+        height: 7rem; // font size of the root element (16px)
+        width: 7rem;
+        border-radius: 50%;
+        background-color: $color-ghostwhite;
+        box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+
+        // Location
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 2000;
+
+        text-align: center;
+        cursor: pointer;
+
+        // Adjustments for tablet-portrait
+        @include respond(tablet-portrait) {
+            top: 3rem;
+            right: 3rem;
+        }
+
+    }
+    
+        /* NAVIGATION BUTTON ICON */
+        &__icon {
+
+            // Location
+            position: relative;
+            margin-top: 3.5rem;
+
+            // Physical Properites (before, original, after)
+            &,
+            &::before,
+            &::after {
+                width: 3rem;
+                height: 2px;
+                background-color: $color-black;
+                display: inline-block;
+                transition: all 0.3s;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+            }
+
+            &::before {top: -0.8rem}
+            &::after {top: 0.8rem}
+
+        }
+
+        /* HOVERING NAVIGATION BUTTON */
+        &__button:hover &__icon::before {
+            top: -1rem;
+        }
+
+        &__button:hover &__icon::after {
+            top: 1rem;
+        }
+
+        /* HAMBURGER MENU ICON - CHECKED */
+        // After __checkbox is checked, selects the first element of __button
+        // after __checkbox with the child __icon.
+        // This icon bar will be transparent.
+        &__checkbox:checked + &__button &__icon {
+            background-color: transparent;
+        }
+
+        // Rotate ::before icon bar
+        &__checkbox:checked + &__button &__icon::before {
+            top: 0;
+            transform: rotateZ(135deg);
+        }
+
+        // Rotate ::after icon bar
+        &__checkbox:checked + &__button &__icon::after {
+            top: 0;
+            transform: rotateZ(-135deg);
+        }
+
+    /* NAVIGATION BACKGROUND */
+    &__background {
+
+        // Physical Properties
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+
+        // Location
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        z-index: 1000;
+        
+        // Transition Effects
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        // Adjustments for tablet-portrait
+        @include respond(tablet-portrait) {
+            // Physical Properties
+            height: 5rem;
+            width: 5rem;
+
+            // Location
+            top: 4rem;
+            right: 4rem;
+        }
+
+    }
+
+        // For all __background in __checkbox:checked
+        // Navigation background expands after checkbox is checked.
+        &__checkbox:checked ~ &__background {
+            transform: scale(80);
+        }
+
+    /* NAVIGATION */
+    &__nav {
+
+        // Physical Properties
+        height: 100vh;
+        width: 0;
+        opacity: 0; // Hide by default
+
+        // Location
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+
+        // Transition Effects
+        transition: all 0.8s cubic-bezier(0.62, -0.04, 0.21, 1.21);
+
+    }
+
+        // nav - show navigation after input is checked
+        &__checkbox:checked ~ &__nav {
+            
+            opacity: 1;
+            width: 100%;
+
+        }
+
+        // list
+        &__list {
+
+            // Physical Properties
+            width: 100%;
+            list-style: none;
+
+            // Location
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+        }
+
+            // item
+            &__item {
+                margin: 1rem;
+            }
+
+            // link
+            &__link {
+                
+                // Default Link States (link, visited, hover, active)
+                &:link,
+                &:visited {
+
+                    // Physical Properties
+                    display: inline-block;
+                    padding: 1rem, 2rem;
+                    background-image: linear-gradient(
+                        120deg,
+                        transparent 0%,
+                        transparent 50%,
+                        $color-white 50%
+                    );
+                    background-size: 230%;
+                    
+                    // Text Physical Properties
+                    color: $color-white;
+                    font-size: 3rem;
+                    font-weight: 300;
+                    text-decoration: none;
+                    text-transform: uppercase;
+
+                    // Effects
+                    transition: all 0.4s;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 1.5rem;
+                    }
+                }
+
+                &:hover,
+                &:active {
+                    background-position: 100%;
+                    color:$color-primary-dark;
+                    transform: translateX(1rem);
+                }
+            }
+
+}
