@@ -1,0 +1,33 @@
+// MIXINS
+
+/*
+x < 600px: ---------    Phone
+600px - 900px: -----    Tablet Portrait
+900px - 1200px: ----    Tablet Landscape
+1200px - 1800px: ---    Default
+1800px < x: --------    Big Monitors
+*/
+
+@mixin respond($device) {
+
+    // For screen of a max width X, apply this css code
+    /*
+        'only' prevents older browsers that do not support media queries 
+        with media features from applying the specified styles. It has no 
+        effect on modern browsers. 
+    */
+
+    // Phone (37.5em)
+    @if $device == phone {
+        @media only screen and (max-width: 37.5em) {@content};
+    }
+
+    // Tablet Portrait (56.25em)
+    @if $device == tablet-portrait {
+        @media only screen and (max-width: 56.25em) {@content};
+    }
+
+    // Tablet Landscape (75em)
+    // Big Monitor (112.5em)
+
+}
