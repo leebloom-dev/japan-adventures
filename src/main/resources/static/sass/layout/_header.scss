@@ -1,0 +1,20 @@
+/* HEADER BACKGROUND */
+.header {
+
+    // Physical Properties
+    height: 85vh;
+    position: relative;
+
+    // Background
+    background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8),
+            $color-primary-dark
+        ),
+        url(../img/sen-lee-_h1IO0AHilM-unsplash.jpg);
+    background-size: cover;
+    background-position: top;
+    
+
+}
