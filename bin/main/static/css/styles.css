@@ -162,6 +162,23 @@ x < 600px: ---------    Phone
   background-image: linear-gradient(to right bottom, rgba(242, 102, 108, 0.8), #8F1D21), url(../img/sen-lee-_h1IO0AHilM-unsplash.jpg);
   background-size: cover;
   background-position: top;
+  /* LOGO */
+  /* TEXT BOX */
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  height: 3.5rem;
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
