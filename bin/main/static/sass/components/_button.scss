@@ -1,0 +1,111 @@
+.btn {
+
+    /* BUTTON */
+    // :link represents element that has not yet been visited.
+    // :link is overriden by any other subsequent link psuedo-classes.
+
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+
+        // Enable all properties for animation on initial button state.
+        transition: all 0.4s 0.2s;
+
+        position: relative;
+        font-size: $default-font-size;
+    }
+
+    &:hover {
+        transition: all 0.4s 0.2s;
+        transform: translateY(-3px);
+        box-shadow: 0 0.5rem 2rem rgba($color-black, 0.2);
+
+        // On :hover, display ::after effects
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        /* Also create pseudo element for .btn-white */
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        /* Also create pseudo element for .btn-white */
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    &::after {
+        content: "";
+
+        /* Make the same as button */
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        /* Position behind button */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all 0.4s;
+    }
+
+    &--animated {
+        /* Include .75s delay */
+        animation: moveInBottom .5s ease-out .75s;
+
+        /* Start 0% keyframe before animation begins */
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        // We're leaving these in px for small units
+        // 1px and 3px will remain px's even in zoomed im
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transition: all .2s .1s;
+        transform: translateY(-2px);
+    }
+    
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
+    }
+}
