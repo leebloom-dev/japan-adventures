@@ -6,87 +6,117 @@ x < 600px: ---------    Phone
 1800px < x: --------    Big Monitors
 */
 /* VARIABLES */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: tarnslate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  backface-visibility: hidden;
+}
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  margin-left: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 2.5s;
+  animation-timing-function: linear;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-primary--main {
+    letter-spacing: 1rem;
+    font-family: 5rem;
+    margin-left: 0;
+  }
+}
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  margin-left: 1.75rem;
+  animation: moveInLeft 2s ease-in;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-primary--sub {
+    letter-spacing: 0.5rem;
+    margin-left: 0;
+  }
+}
+
 .btn {
-  /* BUTTON */
+  /* BUTTON:LINK */
+  /* BUTTON:VISITED */
+  /* BUTTON:HOVER */
+  /* BUTTON:ACTIVE */
+  /* Button--white */
+  /* Button--animated */
 }
 .btn:link, .btn:visited {
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+  display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.4s 0.2s;
-  position: relative;
   font-size: 1.6rem;
+  transition: all 0.4s, 0.2s;
 }
 .btn:hover {
-  transition: all 0.4s 0.2s;
   transform: translateY(-3px);
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.4s 0.2s;
 }
 .btn:hover::after {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
 }
 .btn:active {
-  transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 .btn--white {
   background-color: #fff;
   color: #777;
-  /* Also create pseudo element for .btn-white */
 }
 .btn--white::after {
-  background-color: #fff;
-}
-.btn--green {
-  background-color: #C3272B;
   color: #fff;
-  /* Also create pseudo element for .btn-white */
-}
-.btn--green::after {
-  background-color: #C3272B;
-}
-.btn::after {
-  content: "";
-  /* Make the same as button */
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* Position behind button */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
 }
 .btn--animated {
-  /* Include .75s delay */
   animation: moveInBottom 0.5s ease-out 0.75s;
-  /* Start 0% keyframe before animation begins */
   animation-fill-mode: backwards;
-}
-
-.btn-text:link, .btn-text:visited {
-  font-size: 1.6rem;
-  color: #C3272B;
-  display: inline-block;
-  text-decoration: none;
-  border-bottom: 1px solid #C3272B;
-  padding: 3px;
-}
-.btn-text:hover {
-  background-color: #C3272B;
-  color: #fff;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  transition: all 0.2s 0.1s;
-  transform: translateY(-2px);
-}
-.btn-text:active {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  transform: translateY(0);
 }
 
 .navigation {
