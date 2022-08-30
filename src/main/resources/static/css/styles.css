@@ -83,12 +83,14 @@ x < 600px: ---------    Phone
   /* BUTTON:HOVER */
   /* BUTTON:ACTIVE */
   /* Button--white */
+  /* BUTTON::AFTER */
   /* Button--animated */
 }
 .btn:link, .btn:visited {
   padding: 1.5rem 4rem;
   border-radius: 10rem;
   display: inline-block;
+  position: relative;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 1.6rem;
@@ -100,8 +102,8 @@ x < 600px: ---------    Phone
   transition: all 0.4s 0.2s;
 }
 .btn:hover::after {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 .btn:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -112,7 +114,19 @@ x < 600px: ---------    Phone
   color: #777;
 }
 .btn--white::after {
-  color: #fff;
+  background-color: #fff;
+}
+.btn::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
@@ -289,7 +303,7 @@ x < 600px: ---------    Phone
 }
 .header__text-box {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;

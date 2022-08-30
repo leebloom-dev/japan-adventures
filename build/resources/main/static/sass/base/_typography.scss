@@ -1,0 +1,48 @@
+.heading-primary {
+ 
+    // Physical Properties
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+    backface-visibility: hidden;
+
+    &--main {
+        // Phyiscal Properties
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        margin-left: 3.5rem;
+        
+        // Animation
+        animation-name: moveInLeft;
+        animation-duration: 2.5s;
+        animation-timing-function: linear;
+
+        // Adjustments for Phone
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-family: 5rem;
+            margin-left: 0;
+        }
+    }
+
+    &--sub {
+        // Physical Properties
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        margin-left: 1.75rem;
+
+        // Animation - Shorthand (Name, Time, Time Function)
+        animation: moveInLeft 2s ease-in;
+
+        // Adjustments for Phone
+        @include respond(phone) {
+            letter-spacing: 0.5rem;
+            margin-left: 0;
+        }
+    }
+
+}
