@@ -1,18 +1,18 @@
 .btn {
-    
     // Button pseudo-class: link, visited, hover, active
     // :link is overriden by any other subsequent link pseudo-classes.
 
     /* BUTTON:LINK */
     /* BUTTON:VISITED */
-
     &:link,
     &:visited {
-
         // Physical Properties
         padding: 1.5rem 4rem;
         border-radius: 10rem;
         display: inline-block;
+
+        // Location
+        position: relative;
 
         // Text Properties
         text-transform: uppercase;
@@ -21,13 +21,10 @@
 
         // Animation
         transition: all 0.4s, 0.2s;
-
     }
 
     /* BUTTON:HOVER */
-
     &:hover {
-
         // Physical Properties
         transform: translateY(-3px);
         box-shadow: 0 0.5rem 2rem rgba($color-black, 0.2);
@@ -36,10 +33,9 @@
         transition: all 0.4s 0.2s;
 
         &::after {
-            box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
             transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
         }
-
     }
 
     /* BUTTON:ACTIVE */
@@ -54,8 +50,26 @@
         color: $color-grey-dark;
 
         &::after {
-            color: $color-white;
+            background-color: $color-white;
         }
+    }
+
+    /* BUTTON::AFTER */
+    &::after {
+        content: "";
+        // Physical Properties
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        border-radius: 10rem;
+
+        // Location
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all 0.4s;
     }
 
     /* Button--animated */

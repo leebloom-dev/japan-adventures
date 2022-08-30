@@ -4,6 +4,10 @@
 @import "abstract/mixins";
 @import "abstract/variables";
 
+// BASE
+@import "base/animation";
+@import "base/typography";
+
 // COMPONENTS
 @import "components/button";
 
