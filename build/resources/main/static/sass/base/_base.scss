@@ -1,0 +1,47 @@
+/* BASE: DEFAULT SETTINGS FOR ALL ELEMENTS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* BASE: DEFAULT SETTINGS FOR HTML ELEMENT */
+html {
+    // Setting the root font size. (1rem)
+    // Default browser size: 16px
+    // Percentage allows users to zoom.
+    font-size: 62.5%; // 10/16=0.625, 1rem = 10px by default.
+
+    // Adjustments for Tablet-Landscape (screen width < 1200px)
+    @include respond(tablet-landscape) {
+        font-size: 56.25%;
+    }
+
+    // Adjustments for Tablet-Portrait (screen width < 900px)
+    @include respond(tablet-portrait) {
+        font-size: 50%;
+    }
+
+    // Adjustments for Big-Monitor (screen width > 1800px)
+    @include respond(big-monitor) {
+        font-size: 75%;
+    }
+}
+
+/* BASE: DEFAULT SETTINGS FOR BODY ELEMENT */
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tablet-landscape) {
+        padding: 0;
+    }
+}
+
+// /* BASE: DEFAULT BACKGROUND/FONT COLOR WHEN USER HIGHLIGHTS CONTENT */
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

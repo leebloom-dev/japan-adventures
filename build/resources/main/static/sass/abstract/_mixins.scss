@@ -28,6 +28,13 @@ x < 600px: ---------    Phone
     }
 
     // Tablet Landscape (75em)
+    @if $device == tablet-landscape {
+        @media only screen and (max-width: 75em) {@content};
+    }
+
     // Big Monitor (112.5em)
+    @if $device == big-monitor {
+        @media only screen and (min-width: 112.5em) {@content};
+    }
 
 }

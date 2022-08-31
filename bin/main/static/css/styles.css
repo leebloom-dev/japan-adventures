@@ -29,6 +29,71 @@ x < 600px: ---------    Phone
     transform: translateY(0);
   }
 }
+/* BASE: DEFAULT SETTINGS FOR ALL ELEMENTS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* BASE: DEFAULT SETTINGS FOR HTML ELEMENT */
+html {
+  font-size: 62.5%;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* BASE: DEFAULT SETTINGS FOR BODY ELEMENT */
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  /*
+      'only' prevents older browsers that do not support media queries 
+      with media features from applying the specified styles. It has no 
+      effect on modern browsers. 
+  */
+}
+@media only screen and (max-width: 75em) {
+  body {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: #C3272B;
+  color: #fff;
+}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -337,7 +402,7 @@ x < 600px: ---------    Phone
 }
 .header__text-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
