@@ -169,7 +169,7 @@ body {
   font-size: 1.6rem;
 }
 .paragraph:not(:last-child) {
-  margin-botton: 3rem;
+  margin-bottom: 3rem;
 }
 
 .btn {
