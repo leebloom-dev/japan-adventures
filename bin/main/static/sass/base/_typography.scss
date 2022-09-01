@@ -46,3 +46,51 @@
     }
 
 }
+
+.heading-secondary {
+    background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+    );
+    -webkit-background-clip: text; // clip background gradient to exactly where text sits
+
+    // Physical Properties
+    display: inline-block;
+    padding-bottom: 2rem;
+
+    // Text Properties
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: transparent;
+
+    // Animation
+    transition: all 0.2s 0.1s;
+
+    // TODO: Adjustments Tablet-Portrait
+    // TODO: Adjustments Phone
+
+    &:hover {
+        transform: scale(1.1);
+        // offset-x, offset-y, blur-radius, color
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+}
+
+.heading-tertiary {
+    // Text Properties
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+
+    // Setting paragraph bottom margins except the last one.
+    &:not(:last-child) {
+        margin-botton: 3rem;
+    }
+}
