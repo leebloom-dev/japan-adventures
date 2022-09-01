@@ -13,5 +13,8 @@
 @import "components/button";
 
 // LAYOUT
-@import "layout/navigation";
 @import "layout/header";
+@import "layout/navigation";
+
+// PAGES
+@import "pages/home";
